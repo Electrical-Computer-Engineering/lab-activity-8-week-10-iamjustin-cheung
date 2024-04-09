@@ -49,18 +49,46 @@ char *my_strcpy (char dest[], char src[]){
     dest[i] = '\0';
     return dest;
 }
+
+char *my_strcat(char dest[], const char src[]) {
+    int dest_len = 0;
+    while (dest[dest_len] != '\0') {
+        dest_len++;
+    }
     
+    int i = 0;
+    while (src[i] != '\0') {
+        dest[dest_len + i] = src[i];
+        i++;
+    }
+    dest[dest_len + i] = '\0';
+    return dest;
+}
+
+char *my_reverse(char str[]) {
+    int length = strlen(str);
+    int i, j;
+
+    for (i = 0, j = length - 1; i < j; i++, j--) {
+        char temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+
+    return str;
+}
+
 int main(void){
     
     char s1 [LIM], s2 [LIM];
     int t;
    
     for(int i = 0; i < 2; i++){
-        printf("s1: ");
-        scanf("%s", s1); getchar;
+        printf("String 1: ");
+        scanf("%s", s1);
         
-        printf("s2: ");
-        scanf("%s", s2); getchar;
+        printf("String 2: ");
+        scanf("%s", s2);
         
         t = my_strcmp (s1, s2);
         
@@ -69,6 +97,8 @@ int main(void){
         else
             printf("%s and %s are not equal\n", s1, s2);
     }
+    
+    printf("\n");
     
     for(int i = 0; i < 2; i++){
         char str1[LIM], str2[LIM];
@@ -91,9 +121,42 @@ int main(void){
             printf("The first %d characters of the strings are not equal.\n", n);
         
     }
-        return 0;
-        
-        
     
+    printf("\n");
+    
+    for (int i = 0; i < 2; i++) {
+            char dest[LIM], src[LIM];
+            
+            printf("Enter source string: ");
+            scanf("%s", src);
+            getchar(); 
+            
+            char *copied = my_strcpy(dest, src);
+            printf("Copied string: %s\n", copied);
+            
+            printf("Enter a string to concatenate: ");
+            scanf("%s", src);
+            getchar();
+            
+            char *concatenated = my_strcat(dest, src);
+            printf("Concatenated string: %s\n", concatenated);
+        }
+    
+    printf("\n");
+    
+    for (int i = 0; i < 2; i++) {
+            char dest[LIM], src[LIM];
+            
+            printf("Enter source string: ");
+            scanf("%s", src);
+            getchar();
+            
+            char *copied = my_strcpy(dest, src);
+            printf("Copied string: %s\n", copied);
+            
+            char *reversed = my_reverse(dest);
+            printf("Reversed string: %s\n", reversed);
+        }
+    
+    return 0;
 }
-

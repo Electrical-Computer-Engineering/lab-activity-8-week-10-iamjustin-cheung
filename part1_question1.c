@@ -54,10 +54,7 @@ int main(void){
         getchar();
         d = my_isalpha(c);
         
-            if(d == 1)
-                printf("%c is an uppercase or lower case letter.\n", c);
-            else
-                printf("%c is not an uppercase or lower case letter.\n", c);
+        printf("Is Alphabet: %c - %d\n", c, my_isalpha(c));
     }
     
     for(int i = 0; i<2; i++){
@@ -66,11 +63,9 @@ int main(void){
         scanf("%c", &c);
         getchar();
         d = my_isdigit(c);
+       
+        printf("Is Digit: %c - %d\n", c, my_isdigit(c));
         
-        if(d == 1)
-            printf("%c is a digit\n", c);
-        else
-            printf("%c is not a digit\n", c);
     }
     
     for(int i = 0; i<2; i++){
@@ -80,10 +75,7 @@ int main(void){
         getchar();
         d = my_is_upper(c);
         
-        if(d == 1)
-            printf("%c is uppercase\n", c);
-        else
-            printf("%c is not uppercase\n", c);
+        printf("Is Upper: %c - %d\n", c, my_is_upper(c));
     }
     
     for (int i = 0; i<2; i++){
